@@ -32,7 +32,9 @@ public class SeleccionProblemas extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -40,13 +42,13 @@ public class SeleccionProblemas extends javax.swing.JFrame {
         Tiempo.setBackground(new java.awt.Color(241, 191, 217));
         Tiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Tiempo.setForeground(new java.awt.Color(190, 108, 157));
-        Tiempo.setText("MOVIMIENTO DE PROYECTILES");
+        Tiempo.setText("MOVIMIENTO DE PROYECTILES GENERAL");
         Tiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TiempoActionPerformed(evt);
             }
         });
-        getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 320, 40));
+        getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 400, 40));
 
         Volver.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Volver.setForeground(new java.awt.Color(190, 108, 157));
@@ -81,23 +83,38 @@ public class SeleccionProblemas extends javax.swing.JFrame {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 290, 40));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 290, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(190, 108, 157));
-        jLabel3.setText("MRUV:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 120, 50));
+        jLabel3.setText("MDP especifico:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 280, 50));
+
+        jComboBox3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jComboBox3.setForeground(new java.awt.Color(190, 108, 157));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Angulo (°)", "Velocidad inicial (v₀)", "Altura inicial (Y₀)", "Tiempo total (Ttotal)", "Alcance horizontal (R)", "T'", "Velocidad instantanea", "Altura maxima (hMax)", "Velocidad final (Vf)", "Altura y(t)", "Despazamiento (x)" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 220, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\gomez\\Downloads\\64017 (1).png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 500));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 510));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel4.setText("MRUV:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 120, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void TiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoActionPerformed
         this.dispose();
-        ConvertirTiempo tiempo = new ConvertirTiempo();
-        tiempo.setVisible(true);    // TODO add your handling code here:
+        MovimientoDeProyectiles mdp = new MovimientoDeProyectiles();
+        mdp.setVisible(true);    // TODO add your handling code here:
     }//GEN-LAST:event_TiempoActionPerformed
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
@@ -108,8 +125,8 @@ public class SeleccionProblemas extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
-     String seleccion = (String) jComboBox1.getSelectedItem();
-    
+        String seleccion = (String) jComboBox1.getSelectedItem();
+
         // Verifica la selección y abre la ventana correspondiente
         switch (seleccion) {
             case "Velocidad" -> {
@@ -134,8 +151,8 @@ public class SeleccionProblemas extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-   String seleccion = (String) jComboBox2.getSelectedItem();
-    
+        String seleccion = (String) jComboBox2.getSelectedItem();
+
         // Verifica la selección y abre la ventana correspondiente
         switch (seleccion) {
             case "Velocidad inicial (v₀)" -> {
@@ -169,6 +186,72 @@ public class SeleccionProblemas extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        String seleccion = (String) jComboBox3.getSelectedItem();
+
+        // Verifica la selección y abre la ventana correspondiente
+        switch (seleccion) {
+            case "Velocidad inicial (v₀)" -> {
+                this.dispose();
+                VelocidadInicialMDP velocidadInicial = new VelocidadInicialMDP();
+                velocidadInicial.setVisible(true);
+            }
+            case "Angulo (°)" -> {
+                this.dispose();
+                Angulo an = new Angulo();
+                an.setVisible(true);
+            }
+            case "Altura inicial (Y₀)" -> {
+                this.dispose();
+                alturaInicial Y0 = new alturaInicial();
+                Y0.setVisible(true);
+            }
+            case "Tiempo total (Ttotal)" -> {
+                this.dispose();
+                Ttotal Tt = new Ttotal();
+                Tt.setVisible(true);
+            }
+            case "Alcance horizontal (R)" -> {
+                this.dispose();
+                Alcance alcance = new Alcance();
+                alcance.setVisible(true);
+
+            }
+            case "T'" -> {
+                this.dispose();
+                Tiempoalturaesp Te = new Tiempoalturaesp();
+                Te.setVisible(true);
+            }
+            case "Velocidad instantanea" -> {
+                this.dispose();
+                VelocidadT Vt = new VelocidadT();
+                Vt.setVisible(true);
+            }
+            case "Altura maxima (hMax)" -> {
+                this.dispose();
+                AlturaMaxima hMax = new AlturaMaxima();
+                hMax.setVisible(true);
+            }
+            case "Velocidad final (Vf)" -> {
+                this.dispose();
+                VelocidadFinalMDP vf = new VelocidadFinalMDP();
+                vf.setVisible(true);
+            }
+            case "Altura y(t)" -> {
+                this.dispose();
+                AlturaYt yt = new AlturaYt();
+                yt.setVisible(true);
+            }
+              case "Despazamiento (x)" -> {
+                this.dispose();
+                Desplazamientop x = new Desplazamientop();
+                x.setVisible(true);
+            }
+            default -> {
+            }
+        }  // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -178,8 +261,10 @@ public class SeleccionProblemas extends javax.swing.JFrame {
     private javax.swing.JButton Volver;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

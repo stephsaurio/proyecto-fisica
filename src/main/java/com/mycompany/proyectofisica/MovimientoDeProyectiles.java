@@ -17,6 +17,41 @@ public class MovimientoDeProyectiles extends javax.swing.JFrame {
         initComponents();
     }
 
+    private double convertirVelocidadASi(double valor, String unidad) {
+        switch (unidad) {
+            case "km/h":
+                return valor / 3.6;
+            case "m/s":
+                return valor;
+            default:
+                return valor; // por si hay más, o agregar excepción
+        }
+    }
+
+    private double convertirDistanciaASi(double valor, String unidad) {
+        switch (unidad) {
+            case "km":
+                return valor * 1000;
+            case "m":
+                return valor;
+            default:
+                return valor;
+        }
+    }
+
+    private double convertirTiempoASi(double tiempo, String unidad) {
+        switch (unidad.toLowerCase()) {
+            case "segundos":
+                return tiempo;
+            case "minutos":
+                return tiempo * 60;
+            case "horas":
+                return tiempo * 3600;
+            default:
+                return tiempo;
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,8 +63,33 @@ public class MovimientoDeProyectiles extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        VelocidadInicialField = new javax.swing.JTextField();
         unidadVelocidadInicial = new javax.swing.JComboBox<>();
+        VelocidadInicialField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        anguloField = new javax.swing.JTextField();
+        unidadAngulo = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        alturaInicialField = new javax.swing.JTextField();
+        unidadSalida = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        tiempoEnUnInstanteField = new javax.swing.JTextField();
+        distanciaField = new javax.swing.JTextField();
+        tiempoTotalField = new javax.swing.JTextField();
+        unidadTiempo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        unidadDistancia = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        CalcularAceleracion = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        Respuesta = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        formula = new javax.swing.JLabel();
+        unidadTiempo1 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        hMaxField = new javax.swing.JTextField();
+        unidadhMax = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,8 +103,18 @@ public class MovimientoDeProyectiles extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(241, 191, 217));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(190, 108, 157));
-        jLabel5.setText("Velocidad inicial (v₀):");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jLabel5.setText("Tiempo en un instante (t'):");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+
+        unidadVelocidadInicial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadVelocidadInicial.setForeground(new java.awt.Color(190, 108, 157));
+        unidadVelocidadInicial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "m/s", "km/h", " " }));
+        unidadVelocidadInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadVelocidadInicialActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadVelocidadInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 110, 30));
 
         VelocidadInicialField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         VelocidadInicialField.addActionListener(new java.awt.event.ActionListener() {
@@ -54,15 +124,193 @@ public class MovimientoDeProyectiles extends javax.swing.JFrame {
         });
         getContentPane().add(VelocidadInicialField, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 260, 30));
 
-        unidadVelocidadInicial.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        unidadVelocidadInicial.setForeground(new java.awt.Color(190, 108, 157));
-        unidadVelocidadInicial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "km/h", "m/s" }));
-        unidadVelocidadInicial.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel6.setText("Velocidad inicial (v₀):");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        anguloField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        anguloField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unidadVelocidadInicialActionPerformed(evt);
+                anguloFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(unidadVelocidadInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 110, 30));
+        getContentPane().add(anguloField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 260, 30));
+
+        unidadAngulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadAngulo.setForeground(new java.awt.Color(190, 108, 157));
+        unidadAngulo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "°", "rad" }));
+        unidadAngulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadAnguloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadAngulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 110, 30));
+
+        jLabel7.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel7.setText("Ángulo de lanzamiento (θ):");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        alturaInicialField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        alturaInicialField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alturaInicialFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(alturaInicialField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 260, 30));
+
+        unidadSalida.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadSalida.setForeground(new java.awt.Color(190, 108, 157));
+        unidadSalida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "m", "km" }));
+        unidadSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadSalidaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 80, 30));
+
+        jLabel8.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel8.setText("Altura inicial (y₀):");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 40));
+
+        tiempoEnUnInstanteField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tiempoEnUnInstanteField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tiempoEnUnInstanteFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tiempoEnUnInstanteField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 260, 30));
+
+        distanciaField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        distanciaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                distanciaFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(distanciaField, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 260, 30));
+
+        tiempoTotalField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        tiempoTotalField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tiempoTotalFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tiempoTotalField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 260, 30));
+
+        unidadTiempo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadTiempo.setForeground(new java.awt.Color(190, 108, 157));
+        unidadTiempo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "horas", "minutos", "segundos" }));
+        unidadTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadTiempoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 150, 30));
+
+        jLabel9.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel9.setText("Tiempo total de vuelo (t):");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 40));
+
+        unidadDistancia.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadDistancia.setForeground(new java.awt.Color(190, 108, 157));
+        unidadDistancia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "m", "km" }));
+        unidadDistancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadDistanciaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 80, 30));
+
+        jLabel10.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel10.setText("Distancia horizontal (R):");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 40));
+
+        CalcularAceleracion.setBackground(new java.awt.Color(241, 191, 217));
+        CalcularAceleracion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        CalcularAceleracion.setForeground(new java.awt.Color(190, 108, 157));
+        CalcularAceleracion.setText("calcular");
+        CalcularAceleracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CalcularAceleracionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CalcularAceleracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 560, -1, 50));
+
+        Limpiar.setBackground(new java.awt.Color(245, 215, 226));
+        Limpiar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        Limpiar.setForeground(new java.awt.Color(209, 129, 148));
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, -1, -1));
+
+        jLabel11.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel11.setText("Respuesta:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 10, -1, -1));
+
+        Respuesta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Respuesta.setForeground(new java.awt.Color(190, 108, 157));
+        getContentPane().add(Respuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, 650, 260));
+
+        jLabel1.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel1.setText("Formulas:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, -1, -1));
+
+        formula.setBackground(new java.awt.Color(241, 191, 217));
+        formula.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        formula.setForeground(new java.awt.Color(190, 108, 157));
+        getContentPane().add(formula, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 360, 630, 290));
+
+        unidadTiempo1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadTiempo1.setForeground(new java.awt.Color(190, 108, 157));
+        unidadTiempo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "horas", "minutos", "segundos" }));
+        unidadTiempo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadTiempo1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadTiempo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 150, 30));
+
+        jLabel12.setBackground(new java.awt.Color(241, 191, 217));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(190, 108, 157));
+        jLabel12.setText("Altura maxima (hmax):");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 40));
+
+        hMaxField.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        hMaxField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hMaxFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(hMaxField, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 260, 30));
+
+        unidadhMax.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        unidadhMax.setForeground(new java.awt.Color(190, 108, 157));
+        unidadhMax.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "m", "km" }));
+        unidadhMax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadhMaxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(unidadhMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 80, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1450, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -75,12 +323,244 @@ public class MovimientoDeProyectiles extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unidadVelocidadInicialActionPerformed
 
-  
+    private void anguloFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anguloFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_anguloFieldActionPerformed
+
+    private void unidadAnguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadAnguloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadAnguloActionPerformed
+
+    private void alturaInicialFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alturaInicialFieldActionPerformed
+    }//GEN-LAST:event_alturaInicialFieldActionPerformed
+
+    private void unidadSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadSalidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadSalidaActionPerformed
+
+    private void tiempoEnUnInstanteFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoEnUnInstanteFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tiempoEnUnInstanteFieldActionPerformed
+
+    private void distanciaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distanciaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_distanciaFieldActionPerformed
+
+    private void tiempoTotalFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoTotalFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tiempoTotalFieldActionPerformed
+
+    private void unidadTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadTiempoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadTiempoActionPerformed
+
+    private void unidadDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadDistanciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadDistanciaActionPerformed
+
+    private void CalcularAceleracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcularAceleracionActionPerformed
+        try {
+        // 1. Leer y convertir velocidad inicial a m/s
+        double v0 = Double.parseDouble(VelocidadInicialField.getText());
+        String unidadV0 = unidadVelocidadInicial.getSelectedItem().toString();
+        if (unidadV0.equalsIgnoreCase("km/h")) {
+            v0 /= 3.6;
+        }
+
+        // 2. Leer ángulo (en grados o radianes) y convertir a radianes
+        double angulo = Double.parseDouble(anguloField.getText());
+        String unidadAnguloStr = unidadAngulo.getSelectedItem().toString();
+        if (unidadAnguloStr.equals("°")) {
+            angulo = Math.toRadians(angulo);
+        }
+
+        // 3. Leer altura inicial y convertir a metros
+        double h0 = 0;
+        if (!alturaInicialField.getText().isEmpty()) {
+            h0 = Double.parseDouble(alturaInicialField.getText());
+            String unidadAltura = unidadSalida.getSelectedItem().toString();
+            if (unidadAltura.equalsIgnoreCase("km")) {
+                h0 *= 1000;
+            }
+        }
+
+        // 4. Leer tiempo para calcular posición (opcional)
+        double t = -1; // -1 indica que no se calculará posición a un tiempo específico
+        if (!tiempoEnUnInstanteField.getText().isEmpty()) {
+            t = Double.parseDouble(tiempoEnUnInstanteField.getText());
+            String unidadTiempoStr = unidadTiempo.getSelectedItem().toString();
+            if (unidadTiempoStr.equalsIgnoreCase("minutos")) {
+                t *= 60;
+            } else if (unidadTiempoStr.equalsIgnoreCase("horas")) {
+                t *= 3600;
+            }
+            if (t < 0) {
+                Respuesta.setText("El tiempo debe ser positivo.");
+                return;
+            }
+        }
+
+        // 5. Descomponer velocidad inicial en x y y
+        double v0x = v0 * Math.cos(angulo);
+        double v0y = v0 * Math.sin(angulo);
+        double g = 9.81;
+
+        // 6. Calcular tiempo total de vuelo resolviendo ecuación cuadrática:
+        // y = h0 + v0y * t - 0.5 * g * t^2 = 0  ->  -0.5*g*t^2 + v0y*t + h0 = 0
+        double a = -0.5 * g;
+        double b = v0y;
+        double c = h0;
+        double discriminante = b * b - 4 * a * c;
+
+        if (discriminante < 0) {
+            Respuesta.setText("No existe tiempo real de vuelo (discriminante negativo).");
+            return;
+        }
+
+        double t1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+        double t2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+        double tTotal = Math.max(t1, t2);
+
+        if (tTotal <= 0) {
+            Respuesta.setText("No existe tiempo positivo válido para el vuelo.");
+            return;
+        }
+
+        // 7. Si se ingresó un tiempo para calcular posición, validar que esté en rango
+        if (t >= 0) {
+            if (t > tTotal) {
+                Respuesta.setText(String.format("El tiempo máximo para la posición es %.3f segundos.", tTotal));
+                return;
+            }
+        }
+
+        // 8. Calcular altura máxima
+        double hMax = h0 + (v0y * v0y) / (2 * g);
+
+        // 9. Calcular alcance horizontal total
+        double alcance = v0x * tTotal;
+
+        // 10. Calcular posición (x,y) y velocidad en tiempo t (si t >= 0)
+        double x = 0;
+        double y = 0;
+        double Vy = 0;
+        double V = 0;
+
+        if (t >= 0) {
+            x = v0x * t;
+            y = h0 + v0y * t - 0.5 * g * t * t;
+            Vy = v0y - g * t;
+            V = Math.sqrt(v0x * v0x + Vy * Vy);
+        } else {
+            // Si no hay tiempo dado, mostrar datos generales
+            x = alcance;
+            y = 0;
+            Vy = -v0y; // velocidad al impacto (aprox)
+            V = Math.sqrt(v0x * v0x + Vy * Vy);
+        }
+
+        // 11. Formatear resultados
+        StringBuilder sb = new StringBuilder("<html>");
+        sb.append(String.format("Velocidad inicial (v0): %.3f m/s<br>", v0));
+        sb.append(String.format("Ángulo de lanzamiento: %.2f grados<br>", Math.toDegrees(angulo)));
+        sb.append(String.format("Altura inicial: %.3f m<br>", h0));
+        sb.append(String.format("Tiempo total de vuelo: %.3f s<br>", tTotal));
+        sb.append(String.format("Altura máxima: %.3f m<br>", hMax));
+        sb.append(String.format("Alcance horizontal: %.3f m<br>", alcance));
+
+        if (t >= 0) {
+            sb.append(String.format("<br>Posición en t=%.3f s:<br>", t));
+            sb.append(String.format("x = %.3f m<br>", x));
+            sb.append(String.format("y = %.3f m<br>", y));
+            sb.append(String.format("Velocidad en t: %.3f m/s<br>", V));
+        }
+
+        sb.append("</html>");
+
+        Respuesta.setText(sb.toString());
+
+        // 12. Mostrar fórmulas usadas (opcional)
+        String formulas = "<html>"
+                + "v₀x = v₀ * cos(θ)<br>"
+                + "v₀y = v₀ * sin(θ)<br>"
+                + "t_total: resolver -0.5gt² + v₀yt + h₀ = 0<br>"
+                + "Altura máxima: h₀ + (v₀y²) / (2g)<br>"
+                + "Alcance = v₀x * t_total<br>"
+                + "Posición en t: x = v₀x * t, y = h₀ + v₀y * t - 0.5 * g * t²<br>"
+                + "</html>";
+        formula.setText(formulas);
+
+    } catch (NumberFormatException ex) {
+        Respuesta.setText("Por favor ingresa números válidos.");
+    } catch (Exception ex) {
+        Respuesta.setText("Error en los cálculos: " + ex.getMessage());
+    }
+    }//GEN-LAST:event_CalcularAceleracionActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+
+        VelocidadInicialField.setText("");
+        anguloField.setText("");
+        alturaInicialField.setText("");
+        tiempoTotalField.setText("");
+        distanciaField.setText("");
+        tiempoEnUnInstanteField.setText("");
+
+        // Reiniciar los JComboBox a su primer elemento (opcional)
+        unidadVelocidadInicial.setSelectedIndex(0);
+        unidadAngulo.setSelectedIndex(0);
+        unidadSalida.setSelectedIndex(0);
+        unidadTiempo1.setSelectedIndex(0);
+        unidadDistancia.setSelectedIndex(0);
+        unidadTiempo.setSelectedIndex(0);
+
+        // Limpiar los resultados y fórmulas mostradas
+        Respuesta.setText("");
+        formula.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void unidadTiempo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadTiempo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadTiempo1ActionPerformed
+
+    private void hMaxFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hMaxFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hMaxFieldActionPerformed
+
+    private void unidadhMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadhMaxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadhMaxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CalcularAceleracion;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JLabel Respuesta;
     private javax.swing.JTextField VelocidadInicialField;
+    private javax.swing.JTextField alturaInicialField;
+    private javax.swing.JTextField anguloField;
+    private javax.swing.JTextField distanciaField;
+    private javax.swing.JLabel formula;
+    private javax.swing.JTextField hMaxField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField tiempoEnUnInstanteField;
+    private javax.swing.JTextField tiempoTotalField;
+    private javax.swing.JComboBox<String> unidadAngulo;
+    private javax.swing.JComboBox<String> unidadDistancia;
+    private javax.swing.JComboBox<String> unidadSalida;
+    private javax.swing.JComboBox<String> unidadTiempo;
+    private javax.swing.JComboBox<String> unidadTiempo1;
     private javax.swing.JComboBox<String> unidadVelocidadInicial;
+    private javax.swing.JComboBox<String> unidadhMax;
     // End of variables declaration//GEN-END:variables
 }
