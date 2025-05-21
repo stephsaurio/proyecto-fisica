@@ -36,14 +36,14 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="9d" green="6c" red="be" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="MOVIMIENTO DE PROYECTILES GENERAL"/>
+        <Property name="text" type="java.lang.String" value="MDP sencillo"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TiempoActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="170" y="260" width="400" height="40"/>
+          <AbsoluteConstraints x="270" y="330" width="170" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -152,7 +152,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="310" width="280" height="50"/>
+          <AbsoluteConstraints x="110" y="250" width="280" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -188,7 +188,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="400" y="320" width="220" height="40"/>
+          <AbsoluteConstraints x="400" y="260" width="220" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

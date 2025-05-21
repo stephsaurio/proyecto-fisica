@@ -32,6 +32,7 @@ com\mycompany\proyectofisica\VelocidadFinalMDP.class
 com\mycompany\proyectofisica\VelocidadFinal$3.class
 com\mycompany\proyectofisica\VelocidadInicial$12.class
 com\mycompany\proyectofisica\Aceleracion$5.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$17.class
 com\mycompany\proyectofisica\VelocidadT$6.class
 com\mycompany\proyectofisica\SeleccionProblemas$3.class
 com\mycompany\proyectofisica\Velocidad$3.class
@@ -63,6 +64,7 @@ com\mycompany\proyectofisica\ConvertirTiempo$5.class
 com\mycompany\proyectofisica\ConvertirMasa$3.class
 com\mycompany\proyectofisica\VelocidadFinalMDP$17.class
 com\mycompany\proyectofisica\Alcance$5.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$23.class
 com\mycompany\proyectofisica\VelocidadFinal$2.class
 com\mycompany\proyectofisica\VelocidadFinalMDP$10.class
 com\mycompany\proyectofisica\Desplazamientop$1.class
@@ -99,6 +101,7 @@ com\mycompany\proyectofisica\SeleccionProblemas$5.class
 com\mycompany\proyectofisica\VelocidadT$4.class
 com\mycompany\proyectofisica\Aceleracion$9.class
 com\mycompany\proyectofisica\Angulo$9.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$18.class
 com\mycompany\proyectofisica\SeleccionProblemas$2.class
 com\mycompany\proyectofisica\Ttotal$11.class
 com\mycompany\proyectofisica\AlturaMaxima$12.class
@@ -126,6 +129,7 @@ com\mycompany\proyectofisica\Desplazamientop$6.class
 com\mycompany\proyectofisica\Desplazamientop$3.class
 com\mycompany\proyectofisica\VelocidadFinalMDP$15.class
 com\mycompany\proyectofisica\Angulo$12.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$22.class
 com\mycompany\proyectofisica\Alcance$6.class
 com\mycompany\proyectofisica\TiempoMRUV$2.class
 com\mycompany\proyectofisica\VelocidadInicial$6.class
@@ -160,6 +164,7 @@ com\mycompany\proyectofisica\VelocidadT$14.class
 com\mycompany\proyectofisica\VelocidadFinal$5.class
 com\mycompany\proyectofisica\VelocidadInicial$5.class
 com\mycompany\proyectofisica\Angulo$11.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$20.class
 com\mycompany\proyectofisica\Velocidad$1.class
 com\mycompany\proyectofisica\SeleccionProblemas.class
 com\mycompany\proyectofisica\Distancia$7.class
@@ -186,6 +191,7 @@ com\mycompany\proyectofisica\MovimientoDeProyectiles$14.class
 com\mycompany\proyectofisica\Ttotal$9.class
 com\mycompany\proyectofisica\ConvertirLongitud$4.class
 com\mycompany\proyectofisica\MovimientoDeProyectiles$7.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$21.class
 com\mycompany\proyectofisica\alturaInicial$20.class
 com\mycompany\proyectofisica\Aceleracion$11.class
 com\mycompany\proyectofisica\VelocidadFinalMDP$19.class
@@ -256,6 +262,7 @@ com\mycompany\proyectofisica\VelocidadInicial$8.class
 com\mycompany\proyectofisica\VelocidadT$8.class
 com\mycompany\proyectofisica\VelocidadT$11.class
 com\mycompany\proyectofisica\VelocidadInicial$1.class
+com\mycompany\proyectofisica\MovimientoDeProyectiles$19.class
 com\mycompany\proyectofisica\Ttotal$2.class
 com\mycompany\proyectofisica\AlturaMaxima.class
 com\mycompany\proyectofisica\Alcance$18.class

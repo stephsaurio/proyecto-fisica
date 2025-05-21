@@ -42,13 +42,13 @@ public class SeleccionProblemas extends javax.swing.JFrame {
         Tiempo.setBackground(new java.awt.Color(241, 191, 217));
         Tiempo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Tiempo.setForeground(new java.awt.Color(190, 108, 157));
-        Tiempo.setText("MOVIMIENTO DE PROYECTILES GENERAL");
+        Tiempo.setText("MDP sencillo");
         Tiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TiempoActionPerformed(evt);
             }
         });
-        getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 400, 40));
+        getContentPane().add(Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 170, 40));
 
         Volver.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Volver.setForeground(new java.awt.Color(190, 108, 157));
@@ -88,7 +88,7 @@ public class SeleccionProblemas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(190, 108, 157));
         jLabel3.setText("MDP especifico:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 280, 50));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 280, 50));
 
         jComboBox3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(190, 108, 157));
@@ -98,7 +98,7 @@ public class SeleccionProblemas extends javax.swing.JFrame {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 220, 40));
+        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 220, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\gomez\\Downloads\\64017 (1).png")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 510));
